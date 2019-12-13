@@ -1,4 +1,4 @@
-package com.example.mvpwanandroid.ui.fragment;
+package com.example.mvpwanandroid.ui.fragment.home;
 
 import android.os.Bundle;
 
@@ -21,10 +21,6 @@ public class HomeFragment extends BaseFragment {
         return fragment;
     }
 
-//    public static HomeFragment create() {
-//        return new HomeFragment();
-//    }
-
     @Override
     protected int attachLayoutRes() {
         return R.layout.fragment_home;
@@ -32,7 +28,12 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        StatusbarUtils.enableTranslucentStatusbar1(getActivity());
+        StatusbarUtils.enableTranslucentStatusbar(getActivity(),true,false,R.color.Red,true);
+    }
+
+    @Override
+    protected void initShow() {
+        StatusbarUtils.enableTranslucentStatusbar(getActivity(),true,false,R.color.Red,true);
     }
 
     @Override

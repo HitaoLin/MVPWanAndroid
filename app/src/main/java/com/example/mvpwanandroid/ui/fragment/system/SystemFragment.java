@@ -1,9 +1,10 @@
-package com.example.mvpwanandroid.ui.fragment;
+package com.example.mvpwanandroid.ui.fragment.system;
 
 import android.os.Bundle;
 
 import com.cxz.baselibs.base.BaseFragment;
 import com.example.mvpwanandroid.R;
+import com.example.mvpwanandroid.utils.StatusbarUtils;
 
 public class SystemFragment extends BaseFragment {
 
@@ -27,7 +28,12 @@ public class SystemFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        StatusbarUtils.enableTranslucentStatusbar(getActivity(),true,false,R.color.colorPrimary,true);
+    }
 
+    @Override
+    protected void initShow() {
+        StatusbarUtils.enableTranslucentStatusbar(getActivity(),true,false,R.color.colorPrimary,true);
     }
 
     @Override

@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="wechat"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="34dip"
+        app:tabBackground="@color/white"
+        app:tabIndicatorColor="@color/main"
+        app:tabIndicatorHeight="1dip"
+        app:tabMode="scrollable"
+        app:tabMinWidth="40dip"
+        app:tabPaddingStart="5dip"
+        app:tabPaddingEnd="5dip"
+        app:tabSelectedTextColor="@color/main"
+        app:tabTextAppearance="@style/tab_head"
+        app:tabTextColor="@color/Grey900" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dip"
+        android:layout_weight="1"
+        android:background="@color/white" />
 
 </LinearLayout>

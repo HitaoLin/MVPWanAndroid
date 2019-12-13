@@ -41,6 +41,11 @@ public class OtherFragment extends BaseFragment {
     }
 
     @Override
+    protected void initShow() {
+
+    }
+
+    @Override
     protected void initData() {
 
     }

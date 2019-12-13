@@ -12,16 +12,23 @@ import com.cxz.baselibs.base.BaseMvpActivity;
 import com.example.mvpwanandroid.R;
 import com.example.mvpwanandroid.mvp.contract.MainContract;
 import com.example.mvpwanandroid.mvp.presenter.MainPresenter;
-import com.example.mvpwanandroid.ui.fragment.HomeFragment;
-import com.example.mvpwanandroid.ui.fragment.MeFragment;
-import com.example.mvpwanandroid.ui.fragment.ProjectFragment;
-import com.example.mvpwanandroid.ui.fragment.SystemFragment;
-import com.example.mvpwanandroid.ui.fragment.WechatFragment;
-import com.example.mvpwanandroid.view.BottomBar;
+import com.example.mvpwanandroid.ui.fragment.home.HomeFragment;
+import com.example.mvpwanandroid.ui.fragment.me.MeFragment;
+import com.example.mvpwanandroid.ui.fragment.project.ProjectFragment;
+import com.example.mvpwanandroid.ui.fragment.system.SystemFragment;
+import com.example.mvpwanandroid.ui.fragment.wechat.WechatFragment;
+import com.example.mvpwanandroid.ui.view.BottomBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * <pre>
+ *     author:LHT
+ *     date:2019.11.30
+ *     desc:自定义view导航栏（可改变背景透明度）
+ * </pre>
+ */
 public class MainActivity2 extends BaseMvpActivity<MainPresenter> implements MainContract.View, BottomNavigationBar.OnTabSelectedListener {
 
     @BindView(R.id.fl_content)
@@ -51,6 +58,7 @@ public class MainActivity2 extends BaseMvpActivity<MainPresenter> implements Mai
 
     @Override
     protected void initData() {
+
         mFragmentManager = getSupportFragmentManager();
         initBottomNavigationBar();
     }
@@ -112,7 +120,7 @@ public class MainActivity2 extends BaseMvpActivity<MainPresenter> implements Mai
 
     @Override
     protected MainPresenter createPresenter() {
-        return null;
+        return new MainPresenter();
     }
 
     @Override
@@ -146,6 +154,7 @@ public class MainActivity2 extends BaseMvpActivity<MainPresenter> implements Mai
                 } else {
                     mFragmentTransaction.show(mHomeFragment);
                 }
+
                 break;
             case 1:    // 体系
                 if (mSystemFragment == null) {

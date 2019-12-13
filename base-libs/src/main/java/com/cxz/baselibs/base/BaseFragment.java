@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 
+import com.cxz.baselibs.R;
 import com.cxz.baselibs.app.BaseApp;
 import com.squareup.leakcanary.RefWatcher;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -42,6 +43,8 @@ public abstract class BaseFragment extends RxFragment {
     protected abstract int attachLayoutRes();
 
     protected abstract void initView();
+
+    protected abstract void initShow();
 
     protected abstract void initData();
 
@@ -94,6 +97,16 @@ public abstract class BaseFragment extends RxFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initData();
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (hidden) {// 不在最前端界面显示
+
+        } else {// 重新显示到最前端中
+            initShow();
+        }
     }
 
     @Override

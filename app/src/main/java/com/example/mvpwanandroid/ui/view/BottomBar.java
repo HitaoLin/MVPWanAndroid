@@ -1,4 +1,4 @@
-package com.example.mvpwanandroid.view;
+package com.example.mvpwanandroid.ui.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

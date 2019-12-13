@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cxz.baselibs.base.BaseMvpActivity;
+import com.cxz.baselibs.http.cookie.store.CookieStore;
 import com.cxz.baselibs.imageloader.ImageLoader;
 import com.example.mvpwanandroid.R;
 import com.example.mvpwanandroid.event.MessageEvent;

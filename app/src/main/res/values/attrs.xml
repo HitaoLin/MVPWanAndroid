@@ -9,4 +9,26 @@
         <attr name="background_color" format="color"/>
     </declare-styleable>
 
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="circle" format="boolean" />
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
+    <!--弧形的界面属性-->
+    <declare-styleable name="ArcBottomView">
+        <attr name="arcHeight" format="dimension"/>
+        <attr name="lgColor"   format="color"/>
+        <attr name="bgColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="ArcImageView">
+        <attr name="arcHeight"/>
+    </declare-styleable>
+
 </resources>

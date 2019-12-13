@@ -2,10 +2,8 @@ package com.example.mvpwanandroid.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -15,16 +13,21 @@ import com.cxz.baselibs.base.BaseMvpActivity;
 import com.example.mvpwanandroid.R;
 import com.example.mvpwanandroid.mvp.contract.MainContract;
 import com.example.mvpwanandroid.mvp.presenter.MainPresenter;
-import com.example.mvpwanandroid.ui.fragment.HomeFragment;
-import com.example.mvpwanandroid.ui.fragment.MeFragment;
-import com.example.mvpwanandroid.ui.fragment.ProjectFragment;
-import com.example.mvpwanandroid.ui.fragment.SystemFragment;
-import com.example.mvpwanandroid.ui.fragment.WechatFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.mvpwanandroid.ui.fragment.home.HomeFragment;
+import com.example.mvpwanandroid.ui.fragment.me.MeFragment;
+import com.example.mvpwanandroid.ui.fragment.project.ProjectFragment;
+import com.example.mvpwanandroid.ui.fragment.system.SystemFragment;
+import com.example.mvpwanandroid.ui.fragment.wechat.WechatFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * <pre>
+ *     date:2019.11.29
+ *     desc:普通的底部导航栏
+ * </pre>
+ */
 public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View, BottomNavigationBar.OnTabSelectedListener {
 
     @BindView(R.id.fl_content)
