@@ -10,7 +10,7 @@ import io.reactivex.Observable;
 public interface MineContract {
 
     interface View extends IView{
-        //个人积分
+        //个人积分Leak
         void personalScoreSuccess(PersonalScoreBean.DataBean dataBean);
     }
 
