@@ -54,9 +54,10 @@ public class SampleModel extends BaseModel implements SampleContract.Model {
 
     @Override
     public Observable<BaseBean> login(String username, String password) {
-        return RetrofitHelper.getRetrofitService().login(username, password)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
+//        return RetrofitHelper.getRetrofitService().login(username, password)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread());
+        return null;
     }
 
     @Override

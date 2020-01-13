@@ -1,24 +1,22 @@
 package com.example.mvpwanandroid.mvp.model;
 
-
 import com.cxz.baselibs.mvp.BaseModel;
 import com.example.mvpwanandroid.http.RetrofitHelper;
-import com.example.mvpwanandroid.mvp.contract.LoginContract;
-import com.example.mvpwanandroid.mvp.model.bean.LoginBean;
+import com.example.mvpwanandroid.mvp.contract.MineContract;
+import com.example.mvpwanandroid.mvp.model.bean.PersonalScoreBean;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class LoginModel extends BaseModel implements LoginContract.Model {
+public class MineModel extends BaseModel implements MineContract.Model {
 
-    //登录
+    //个人积分
     @Override
-    public Observable<LoginBean> login(String username, String password) {
-        return RetrofitHelper.getRetrofitService().login(username,password)
+    public Observable<PersonalScoreBean> personalScore() {
+        return RetrofitHelper.getRetrofitService().personalScore()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
-
 
 }

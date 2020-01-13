@@ -7,7 +7,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cxz.baselibs.base.BaseFragment;
+import com.cxz.baselibs.base.BaseMvpFragment;
+import com.cxz.baselibs.utils.SPUtils;
 import com.example.mvpwanandroid.R;
+import com.example.mvpwanandroid.config.SPConfig;
+import com.example.mvpwanandroid.mvp.contract.MineContract;
+import com.example.mvpwanandroid.mvp.model.bean.PersonalScoreBean;
+import com.example.mvpwanandroid.mvp.presenter.LoginPresenter;
+import com.example.mvpwanandroid.mvp.presenter.MinePresenter;
 import com.example.mvpwanandroid.ui.activity.LoginActivity;
 import com.example.mvpwanandroid.ui.view.CircleImageView;
 import com.example.mvpwanandroid.utils.StatusbarUtils;
@@ -15,7 +22,7 @@ import com.example.mvpwanandroid.utils.StatusbarUtils;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MeFragment extends BaseFragment {
+public class MeFragment extends BaseMvpFragment<MinePresenter> implements MineContract.View {
 
 
     @BindView(R.id.civ_user_icon)
@@ -45,6 +52,9 @@ public class MeFragment extends BaseFragment {
     @BindView(R.id.ll_setting)
     LinearLayout llSetting;
 
+    String username;
+    String id;
+
     /**
      * 提供Fragment实例
      *
@@ -66,6 +76,7 @@ public class MeFragment extends BaseFragment {
     @Override
     protected void initView() {
         StatusbarUtils.enableTranslucentStatusbar(getActivity(),true,true,R.color.main,true);
+
     }
 
     @Override
@@ -110,4 +121,36 @@ public class MeFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        username = SPUtils.getInstance().getString(SPConfig.USERNAME);
+        if (username!= null){
+            if(!username.isEmpty()){
+                tvUserName.setText(username);
+            }
+        }
+
+        id = SPUtils.getInstance().getString(SPConfig.ID);
+        if (id!= null){
+            if(!id.isEmpty()){
+                tvUserId.setText(id);
+            }
+        }
+    }
+
+    @Override
+    protected MinePresenter createPresenter() {
+        return new MinePresenter();
+    }
+
+    @Override
+    protected void lazyLoad() {
+
+    }
+
+    @Override
+    public void personalScoreSuccess(PersonalScoreBean.DataBean dataBean) {
+
+    }
 }

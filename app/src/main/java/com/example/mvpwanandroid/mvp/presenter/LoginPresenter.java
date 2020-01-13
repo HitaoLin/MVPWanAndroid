@@ -5,6 +5,8 @@ import com.cxz.baselibs.mvp.BasePresenter;
 import com.cxz.baselibs.rx.BaseObserver;
 import com.example.mvpwanandroid.mvp.contract.LoginContract;
 import com.example.mvpwanandroid.mvp.model.LoginModel;
+import com.example.mvpwanandroid.mvp.model.bean.LoginBean;
+import com.example.mvpwanandroid.mvp.model.bean.PersonalScoreBean;
 
 public class LoginPresenter extends BasePresenter<LoginContract.Model,LoginContract.View> implements LoginContract.Presenter{
     @Override
@@ -12,16 +14,22 @@ public class LoginPresenter extends BasePresenter<LoginContract.Model,LoginContr
         return new LoginModel();
     }
 
-
+    /**
+     * 登录
+     * @param username 姓名
+     * @param password 密码
+     */
     @Override
     public void login(String username, String password) {
         getModel().login(username,password)
                 .compose(getView().bindToLife())
-                .subscribe(new BaseObserver<BaseBean>(getView()){
+                .subscribe(new BaseObserver<LoginBean>(getView()){
                     @Override
-                    protected void onSuccess(BaseBean baseBean) {
-                        getView().loginSuccess();
+                    protected void onSuccess(LoginBean loginBean) {
+                        getView().loginSuccess(loginBean.getData());
                     }
                 });
     }
+
+
 }

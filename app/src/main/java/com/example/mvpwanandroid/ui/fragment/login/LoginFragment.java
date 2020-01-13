@@ -13,8 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.cxz.baselibs.base.BaseMvpFragment;
 import com.cxz.baselibs.mvp.IPresenter;
+import com.cxz.baselibs.utils.SPUtils;
 import com.example.mvpwanandroid.R;
+import com.example.mvpwanandroid.config.SPConfig;
 import com.example.mvpwanandroid.mvp.contract.LoginContract;
+import com.example.mvpwanandroid.mvp.model.bean.LoginBean;
 import com.example.mvpwanandroid.mvp.presenter.LoginPresenter;
 import com.example.mvpwanandroid.utils.PreventQuickClicksUtil;
 
@@ -33,6 +36,8 @@ public class LoginFragment extends BaseMvpFragment<LoginPresenter> implements Lo
     LinearLayout llRegistered;//去注册
     private String userName;//用户名
     private String password;//密码
+    private String nickName;//登录后名称
+    private String id;//ID
 
     /**
      * from:Android之---Activity与Fragment之间的传值问题
@@ -62,10 +67,17 @@ public class LoginFragment extends BaseMvpFragment<LoginPresenter> implements Lo
     }
 
     @Override
-    public void loginSuccess() {
+    public void loginSuccess(LoginBean.DataBean login) {
+        nickName = login.getNickname();
+        id = login.getId();
+        SPUtils.getInstance().put(SPConfig.USERNAME,nickName);
+        SPUtils.getInstance().put(SPConfig.ID,id);
         showDefaultMsg("登录成功");
         callBackValue.SendMessageValue("3");
+
+
     }
+
 
     //定义一个回调接口
     public interface CallBackValue{
